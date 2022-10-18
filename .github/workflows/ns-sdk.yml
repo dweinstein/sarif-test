@@ -1,0 +1,36 @@
+name: "NowSecure - SDK"
+
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      api_url:
+        description: "API URL"
+        required: true
+      project_id:
+        description: "Project ID"
+        required: true
+jobs:
+
+ scan:
+  runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+
+    # demonstrates getting an existing report and converting to sarif
+    - name: NowSecure GHAS
+      uses: dweinstein/nowsecure-action/convert-sdk@sarif-fun
+      timeout-minutes: 10
+      with:
+        project_id: ${{ inputs.project_id }}
+        api_url: ${{ inputs.api_url }}
+
+    - name: Upload SARIF to artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: sdk.sarif
+        path: ./sdk.sarif
+
