@@ -34,6 +34,12 @@ jobs:
         name: sdk.sarif
         path: ./sdk.sarif
 
+    - name: Upload HTML report to artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: nsreport.html
+        path: ./report.html
+
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v2
       with:
