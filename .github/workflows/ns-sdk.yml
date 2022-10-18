@@ -17,8 +17,7 @@ jobs:
 
   steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
-
+      uses: actions/checkout@v3
 
     # demonstrates getting an existing report and converting to sarif
     - name: NowSecure GHAS
@@ -29,13 +28,13 @@ jobs:
         api_url: ${{ inputs.api_url }}
 
     - name: Upload SARIF to artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: sdk.sarif
         path: ./sdk.sarif
 
     - name: Upload HTML report to artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: nsreport.html
         path: ./report.html
