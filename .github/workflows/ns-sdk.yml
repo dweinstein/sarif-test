@@ -10,6 +10,7 @@ on:
       project_id:
         description: "Project ID"
         required: true
+        default: "3deca90e-b097-4c1d-94d3-46ad5d1abb30"
 jobs:
 
  scan:
