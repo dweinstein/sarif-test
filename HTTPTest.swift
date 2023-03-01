@@ -17,9 +17,6 @@ class HTTPTest: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        // this is a test
         
         self.memoryCapacityTextField.delegate = self
         self.diskCapacityTextField.delegate = self
